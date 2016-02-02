@@ -11,7 +11,7 @@ import (
 
 var numChild = flag.Int(
 	"numChild",
-	10,
+	5,
 	"hi",
 )
 
@@ -23,7 +23,7 @@ func main() {
 		panic(err)
 	}
 	fmt.Println("wd:", wd)
-	p := "/home/vcap/app/dumb"
+	p := "/home/vcap/app/bin/dumb"
 
 	if *numChild > 0 {
 		pid, err := syscall.ForkExec(p, []string{p, "-numChild", strconv.Itoa(*numChild - 1)}, &syscall.ProcAttr{
